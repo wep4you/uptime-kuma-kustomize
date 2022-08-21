@@ -12,5 +12,5 @@ metadata:
 spec:  
   tls:
     - hosts:
-        - uptime.local.wep4you.com
+        - uptime.wep4you.com
       secretName: tls-uptime-kuma-web-ingress
