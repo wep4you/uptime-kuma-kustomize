@@ -17,7 +17,7 @@ spec:
         app: uptime-kuma-web
     spec:
       containers:
-        - image: louislam/uptime-kuma:1.11.3-debian
+        - image: louislam/uptime-kuma:latest
           name: uptime-kuma-web
           ports:
             - containerPort: 3001
