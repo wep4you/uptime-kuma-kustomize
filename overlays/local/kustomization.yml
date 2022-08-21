@@ -5,6 +5,13 @@ resources:
 patchesStrategicMerge:
 - ingress.yml
 patches:
+- path: ingress-patch.yml
+  target:
+    group: networking.k8s.io
+    version: v1
+    kind: Ingress
+    name: uptime-kuma-web
+    namespace: uptime-kuma
 - path: deployment-patch.yml
   target:
     group: apps/v1
