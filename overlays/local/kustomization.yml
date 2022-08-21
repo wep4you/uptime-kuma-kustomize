@@ -12,13 +12,6 @@ patches:
     name: uptime-kuma-web
     namespace: uptime-kuma
     version: v1
-- path: deployment-patch.yml
-  target:
-    group: apps/v1
-    kind: Deployment
-    name: uptime-kuma-web
-    namespace: uptime-kuma
-    version: v1
 images:
 - name: louislam/uptime-kuma
   newName: louislam/uptime-kuma
