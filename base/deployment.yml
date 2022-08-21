@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uptime-kuma-web
+  namespace: uptime-kuma
+  labels:
+    app: uptime-kuma-web
+spec:
+  selector:
+    matchLabels:
+      app: uptime-kuma-web
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: uptime-kuma-web
+    spec:
+      containers:
+        - image: louislam/uptime-kuma:1.11.3-debian
+          name: uptime-kuma-web
+          ports:
+            - containerPort: 3001
+              name: uptime-kuma-web
+          volumeMounts:
+            - name: uptime-kuma-web-persistent-storage
+              mountPath: /app/data
+          resources:
+            limits:
+              cpu: '150'
+              memory: '250Mi'
+            requests:
+              cpu: '50m'
+              memory: '100Mi'
+      volumes:
+        - name: uptime-kuma-web-persistent-storage
+          persistentVolumeClaim:
+            claimName: uptime-kuma-web-pvc
